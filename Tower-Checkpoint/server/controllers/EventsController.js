@@ -7,6 +7,7 @@ export class EventsController extends BaseController {
     super('api/events')
     this.router
     .get('', this.getAllEvents)
+    
 
   }
 async getAllEvents(req,res,next) {
