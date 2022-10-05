@@ -5,13 +5,13 @@ const Schema = mongoose.Schema
 export const EventSchema = new Schema({
   creatorId: { type: ObjectId, required: true, ref: "Account"},
   name: { type: String, required: true, minlength: 1, maxLength: 100 },
-  description: { type: String, required: true, minlength: 1, maxLength: 500 },
+  description: { type: String, required: true, minlength: 1, },
   coverImg: { type: String, required: true, },
   location: { type: String, required: true, minlength: 1, maxLength: 200 },
   capacity: { type: Number, required: true, },
   startDate: { type: Date, required: true, },
   isCanceled: { type: Boolean, default: false },
-  type: { type: String, enum: ['concert', 'convention', 'sport', 'digital,'], required: true, }
+  type: { type: String, enum: ['concert', 'convention', 'sport', 'digital'], required: true, }
 }, SCHEMA_OPTIONS)
 
 
