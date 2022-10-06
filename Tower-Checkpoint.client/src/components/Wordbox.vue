@@ -1,6 +1,6 @@
 <template>
 
-<section class="container-fluid bg-dark pt-4">
+<section class="container-fluid bg-dark pt-3">
   <div class="row">
   <div class="col-12 container wordbox">
     <p>Get ahead of the scalpers.</p>

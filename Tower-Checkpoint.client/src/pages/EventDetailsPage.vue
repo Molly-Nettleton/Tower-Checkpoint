@@ -1,39 +1,114 @@
 <template>
-<div class="pe-2">
-<section class="container elevation-5 me-5 d-flex bg-secondary pe-3">
-
-  <div class="col-4 p-2 m-1 me-4">
-      <img class="eventimg img-fluid elevation-5" src="https://thiscatdoesnotexist.com/" alt="">
-  </div>
-    
-    <div class="col-7 pt-4 ms-3">
-      <div class="d-flex justify-content-between">
-    <div><h4>product con</h4>Social Event Center</div>
-    <div><h5>10th of month</h5>
-    <p>time of event</p></div>
-    </div>
-    <div>
-      
-    </div>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos amet consequuntur magnam doloribus sit deleniti reiciendis eos, harum dolorum rem. Non in doloremque aliquam at, maiores nostrum aut impedit architecto! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde saepe labore ea facilis architecto, cum vitae quaerat sequi earum modi officiis recusandae asperiores, mollitia totam sed eligendi doloribus harum aliquam.</p>
-    <div class="d-flex flex-end justify-content-between">  <div>100 spots left</div> <div><button class="btn btn-warning">Attend</button></div></div>
-      </div>
-
-</section>
+<div v-if="event">
+<EventDetail :event="event"/>
 </div>
  <div class="container pt-5">
   <h5>See who is attending this event.</h5>
-  <div class="p-2 bg-secondary"><img class="pic elevation-5 rounded-circle" src="https://thiscatdoesnotexist.com/" alt=""> </div>
+  <div class="p-2 bg-grey"><img class="pic elevation-5 rounded-circle" src="https://thiscatdoesnotexist.com/" alt=""> </div>
 </div>
+<br>
+<section>  
+  <div class="ms-2 mb-2 text-text">What people are saying</div>
+  <div class="container bg-grey p-4">
+  <div class="text-success text-end pb-1">Join the convseration</div>
+  <CreateComment/> <br>
+
+<div class="" v-for="c in comments" :key="c">
+        <CommentCard :comment="c" :account="c.creator"/>
+        </div>
+</div>
+</section>
+
 
 </template>
 
 
 <script>
+import { computed } from "@vue/reactivity"
+import { onMounted } from "vue"
+import { AppState } from "../AppState.js"
+import { commentsService } from "../services/CommentsService.js"
+import Pop from "../utils/Pop.js"
+import CommentCard from "../components/CommentCard.vue"
+import CreateComment from "../components/CreateComment.vue"
+import { useRoute } from "vue-router"
+import { eventsService } from "../services/EventsService.js"
+import { AuthService } from "../services/AuthService.js"
+import EventCard from "../components/EventCard.vue"
+import EventDetail from "../components/EventDetail.vue"
+
 export default {
-  setup(){
-    return {}
-  }
+  setup() {
+    const route = useRoute()
+
+    async function getEventById() {
+      try {
+        await eventsService.getEventById(route.params.id);
+        } catch (error) {
+          console.error('[GetEventById]',error)
+          Pop.error(error)
+        }
+    }
+        async function getComments() {
+            try {
+                await commentsService.getComments(route.params.id);
+            }
+            catch (error) {
+                console.error("[GetComments]", error);
+                Pop.error(error);
+            }
+    }
+    async function getAttendeesByEventId() {
+      try {
+          await eventsService.getAttendees(route.params.id)
+        } catch (error) {
+          console.error('[GetAttendees]',error)
+          Pop.error(error)
+        }
+    }
+        
+    onMounted(() => {
+      getEventById();
+      getComments();
+      getAttendeesByEventId();
+        });
+    return {
+          event: computed(() => AppState.activeEvent),
+          account: computed(() => AppState.account),
+          comments: computed(() => AppState.comments),
+          user: computed(() => AppState.user),
+          attendees: computed(() => AppState.attendees),
+          isAttendee: computed(() => AppState.attendees.find(a => a.accountId == AppState.account.id)),
+
+      async addAttendee() {
+            try {
+              if (!AppState.account.id) {
+                return AuthService.loginWithRedirect()
+              }
+              await eventsService.addAttendee({
+                eventId: AppState.activeEvent.id || route.params.id
+              })
+                Pop.success('Ticket to event added!')
+              } catch (error) {
+                console.error('[AddAttendee]',error)
+                Pop.error(error)
+              }
+      },
+      async removeAttendee() {
+            try {
+              const yes = await Pop.confirm('Are you sure you do not want to attend this event?')
+              if (!yes) { return }
+              const attendee = AppState.attendees.find(a => a.accountId == AppState.account.id && a.albumId == AppState.activeEvent.id)
+              await eventsService.removeAttendee(attendee.id)
+                Pop.success('Ticket removed.')
+              } catch (error) {
+                console.error('[RemoveAttendee]',error)
+                Pop.error(error)
+              }
+          }
+        };
+    },
+    components: { CommentCard, CreateComment, EventCard, EventDetail }
 }
 </script>
 

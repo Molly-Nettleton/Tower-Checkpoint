@@ -11,8 +11,8 @@
 <section class="container">
     <div class="col-12 bg-grey">
       <div class="d-flex justify-content-around my-3 text-light">
-        <button  class="btn selectable text-light">All</button>
-        <button  class="btn selectable text-light">Concerts</button>
+        <button @click="filterEvent('')" class="btn selectable text-light">All</button>
+        <button @click="filterEvent('concert')" class="btn selectable text-light">Concerts</button>
         <button  class="btn selectable text-light">Conventions</button>
         <button  class="btn selectable text-light">Sports</button>
         <button class="btn selectable text-light">Digitals</button>
@@ -22,10 +22,20 @@
 </template>
 
 <script>
+import { eventsService } from "../services/EventsService.js";
+import Pop from "../utils/Pop.js";
 import Login from './Login.vue'
 export default {
   setup() {
-    return {}
+    return {
+      async filterEvent(type){
+        try {
+          await eventsService.getEvents(type)
+        } catch (error) {
+          Pop.error(error,'[FilterEvents]')
+        }
+      }
+    }
   },
   components: { Login }
 }
