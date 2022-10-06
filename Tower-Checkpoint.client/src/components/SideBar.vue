@@ -1,10 +1,10 @@
 <template>
 <div class="d-flex flex-wrap justify-content-center">
   <Login/>
-  <button class="btn btn-primary m-3">Home</button>
-  <button class="btn btn-success m-3">Account</button>
-  <button class=" btn btn-success m-3">New Event</button>
-  <button class=" btn btn-danger m-3">Logout</button>
+  <button class="btn btn-primary mt-3">Home</button>
+  <button class="btn btn-success mt-3">Account</button>
+  <button class="btn btn-success mt-3">New Event</button>
+  <button class="btn btn-danger mt-3">Logout</button>
   </div>
 </template>
 

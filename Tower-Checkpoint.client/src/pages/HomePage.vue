@@ -4,7 +4,7 @@
 <Wordbox/>
   <!-- SECTION wordbox end -->
   
-  <section class="m-4 p-2">
+  <section class="">
     <navbar />
   </section>
   

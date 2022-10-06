@@ -1,7 +1,7 @@
 <template>
-  <div class="eventcard" :style="{backgroundImage: `url(${event.coverImg})`}">
+  <div class="eventcard rounded" :style="{backgroundImage: `url(${event.coverImg})`}">
     <br><br><br><br><br>
-    <div class="cardtitle p-3"><h5>{{event.name}}</h5><div>
+    <div class="cardtitle m-2 p-1"><div>{{event.name}}</div><div>
     {{event.location}}</div>
   <div>{{event.startDate}}</div></div>
   
@@ -25,7 +25,11 @@ export default {
 
 <style lang="scss" scoped>
 .eventcard {
-  border: solid rgb(163, 13, 244);
+  border: solid 5px #474C61;
+  background-size: 100%;
+  // background-position: top;
+  // // background-attachment: fixed;
+  background-repeat: no-repeat;
 }
   .cardtitle{
     backdrop-filter: blur(10px);

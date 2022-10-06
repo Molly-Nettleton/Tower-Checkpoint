@@ -2,29 +2,15 @@
 
   <div class="container-fluid bg-dark">
   <div class="row">
-    
   <div class="col-11">
-  
-  <header>
-    <!-- SECTION titlebar start -->
-  <section class="container-fluid bg-dark">
-    <div class="row justify-content-center">
-      <div class="col-12 d-flex ps-3"><div  class="titlebar">T</div>
-      <img src="src\assets\img\Vector.png" height="50" class="mt-4" alt="">
-      <div class="titlebar">WER</div></div>
-    </div>
-  </section> 
-  <!-- SECTION titlebar end -->
-  </header>
+   <TitleBar/>
 
-  <main class="bg-dark ms-3 mb-4">
+  <main class="ms-3 mb-4">
     <router-view />
   </main>
-
-
 </div>
 
-<div class="col-1 text-center">
+<div class="col-1 text-center bg-grey sidebar">
  <SideBar/>
 </div>
 
@@ -41,6 +27,7 @@ import Navbar from './components/Navbar.vue'
 import Login from "./components/Login.vue"
 import Wordbox from "./components/Wordbox.vue"
 import SideBar from "./components/SideBar.vue"
+import TitleBar from "./components/TitleBar.vue"
 
 export default {
   setup() {
@@ -48,7 +35,7 @@ export default {
       appState: computed(() => AppState)
     }
   },
-  components: { Navbar, Login, Wordbox, SideBar }
+  components: { Navbar, Login, Wordbox, SideBar, TitleBar }
 }
 </script>
 <style lang="scss">
@@ -58,8 +45,7 @@ export default {
   font-size: 60px
 }
 
-main{
-  background-color: b;
-}
+
+
 
 </style>

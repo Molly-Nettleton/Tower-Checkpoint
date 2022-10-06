@@ -1,16 +1,24 @@
 <template>
- <div class="row justify-content-between bg-success rounded pb-3 p-2 g-2">
-  <div class="col text-center selectable rounded p-1"><h5>All</h5></div>
-  <div class="col text-center selectable rounded p-1"><h5>Expos</h5></div>
-  <div class="col text-center selectable rounded p-1"><h5>Conventions</h5></div>
-  <div class="col text-center selectable rounded p-1"><h5>Exhibits</h5></div>
-  <div class="col text-center selectable rounded p-1"><h5>ESports</h5></div>
-  <div class="col text-center selectable rounded p-1"><h5>Digital</h5></div>
-  <div class="col text-center selectable rounded p-1"><h5>Concerts</h5></div>
-  
-
-
-</div>
+ <!-- <div class="row justify-content-between bg-success rounded pb-3 p-2 g-2">
+  <div class="col text-center selectable rounded p-1"><div>All</div></div>
+  <div class="col text-center selectable rounded p-1"><div>Expos</div></div>
+  <div class="col text-center selectable rounded p-1"><div>Conventions</div></div>
+  <div class="col text-center selectable rounded p-1"><div>Exhibits</div></div>
+  <div class="col text-center selectable rounded p-1"><div>ESports</div></div>
+  <div class="col text-center selectable rounded p-1"><div>Digital</div></div>
+  <div class="col text-center selectable rounded p-1"><div>Concerts</div></div>
+</div> -->
+<section class="container">
+    <div class="col-12 bg-grey">
+      <div class="d-flex justify-content-around my-3 text-light">
+        <button  class="btn selectable text-light">All</button>
+        <button  class="btn selectable text-light">Concerts</button>
+        <button  class="btn selectable text-light">Conventions</button>
+        <button  class="btn selectable text-light">Sports</button>
+        <button class="btn selectable text-light">Digitals</button>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
