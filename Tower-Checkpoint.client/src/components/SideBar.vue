@@ -1,24 +1,28 @@
 <template>
-<div class="d-flex flex-wrap">
-  <div class="m-3">
-  <Login/></div>
-  <div class="bg-primary m-3">Home</div>
-  <div class="bg-success m-3">Accountiv</div>
-  <div class="bg-success m-3">New Event</div>
-  <div class="bg-danger m-3">Logout</div>
-</div>
+<div class="d-flex flex-wrap justify-content-center">
+  <Login/>
+  <button class="btn btn-primary m-3">Home</button>
+  <button class="btn btn-success m-3">Account</button>
+  <button class=" btn btn-success m-3">New Event</button>
+  <button class=" btn btn-danger m-3">Logout</button>
+  </div>
 </template>
 
 
 <script>
+import Login from "./Login.vue";
 export default {
-  setup(){
-    return {}
-  }
+    setup() {
+        return {};
+    },
+    components: { Login }
 }
 </script>
 
 
 <style lang="scss" scoped>
+  .btn{
+  font-size: small;
+  }
 
 </style>

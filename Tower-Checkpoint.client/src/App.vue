@@ -17,7 +17,7 @@
   <!-- SECTION titlebar end -->
   </header>
 
-  <main class="bg-dark ms-5 p-2">
+  <main class="bg-dark ms-3 mb-4">
     <router-view />
   </main>
 

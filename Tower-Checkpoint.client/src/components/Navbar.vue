@@ -1,6 +1,5 @@
 <template>
- <div class="row justify-content-between bg-success rounded ms-3 pb-3 p-2 g-2">
-
+ <div class="row justify-content-between bg-success rounded pb-3 p-2 g-2">
   <div class="col text-center selectable rounded p-1"><h5>All</h5></div>
   <div class="col text-center selectable rounded p-1"><h5>Expos</h5></div>
   <div class="col text-center selectable rounded p-1"><h5>Conventions</h5></div>

@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
-import { ObjectId, SCHEMA_OPTIONS } from "../db/DbUtils.js";
-const Schema = mongoose.Schema
 
+const Schema = mongoose.Schema
+const ObjectId = Schema.Types.ObjectId
 export const TicketSchema = new Schema({
   eventId: { type: ObjectId, required: true, ref: "Event"},
   accountId: { type: ObjectId, required: true, ref: "Account"},
-}, SCHEMA_OPTIONS)
+}, {timestamps:true, toJSON:{virtuals:true}})
 
 TicketSchema.index({eventId: 1, accountId: 1 }, {unique: true})
 
@@ -21,7 +21,7 @@ TicketSchema.virtual('event', {
   localField: 'eventId',
   foreignField: '_id',
   justOne: true,
-  ref: 'Account'
+  ref: 'Event'
 })
 
 // NOTE COMPARABLE TO ALBUM MEMBER IN POSTIT

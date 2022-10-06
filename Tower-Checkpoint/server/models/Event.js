@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import { ObjectId, SCHEMA_OPTIONS } from "../db/DbUtils.js";
+// import { ObjectId, SCHEMA_OPTIONS } from "../db/DbUtils.js";
 const Schema = mongoose.Schema
-
+const ObjectId = mongoose.Types.ObjectId
 export const EventSchema = new Schema({
   creatorId: { type: ObjectId, required: true, ref: "Account"},
   name: { type: String, required: true, minlength: 1, maxLength: 100 },
@@ -12,7 +12,7 @@ export const EventSchema = new Schema({
   startDate: { type: Date, required: true, },
   isCanceled: { type: Boolean, default: false },
   type: { type: String, enum: ['concert', 'convention', 'sport', 'digital'], required: true, }
-}, SCHEMA_OPTIONS)
+}, { timestamps:true, toJSON:{virtuals: true}})
 
 
 EventSchema.virtual('creator', {

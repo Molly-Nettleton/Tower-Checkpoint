@@ -14,7 +14,7 @@ async removeComment(id, userInfo) {
   if (comment.creatorId.toString() != userInfo) {
     throw new Forbidden('Not your comment.')
   }
-  comment.remove
+  comment.remove()
   return comment
   }
   async getCommentsByEventId(eventId) {

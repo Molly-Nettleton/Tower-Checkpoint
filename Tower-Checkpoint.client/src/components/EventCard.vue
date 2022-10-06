@@ -25,11 +25,8 @@ export default {
 
 <style lang="scss" scoped>
 .eventcard {
-  width: 370px;
-  height: 250px;
   border: solid rgb(163, 13, 244);
-
-
+}
   .cardtitle{
     backdrop-filter: blur(10px);
   }
@@ -39,5 +36,5 @@ export default {
     max-width: 100%;
     object-fit: cover;
   }
-}
+
 </style>

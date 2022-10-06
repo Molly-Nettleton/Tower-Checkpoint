@@ -9,7 +9,7 @@
   </section>
   
   <div class="row g-4 eventcard">
-<div class="col-3" v-for="e in events" :key="e.id">
+<div class="col-4" v-for="e in events" :key="e.id">
 <EventCard :event="e"/></div>
 </div>
 </template>
