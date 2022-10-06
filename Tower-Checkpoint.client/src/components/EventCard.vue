@@ -10,10 +10,13 @@
 
 
 <script>
+import { Event } from "../models/Event.js";
+
 
 export default {
   props: {
-    event: { type: Object, required: true }
+    event: { type: Event, required: true },
+
   },
   setup(){
     return {

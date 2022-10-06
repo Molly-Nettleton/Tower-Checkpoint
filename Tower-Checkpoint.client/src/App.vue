@@ -1,6 +1,6 @@
 <template>
 
-  <div class="container-fluid bg-dark">
+  <div class="container-fluid bg-dark maincnt">
   <div class="row">
   <div class="col-11">
    <TitleBar/>
@@ -45,7 +45,13 @@ export default {
   font-size: 60px
 }
 
+::-webkit-scrollbar{
+    display: none;
+}
 
+.maincnt{
+  margin-left: 10px;
+}
 
 
 </style>

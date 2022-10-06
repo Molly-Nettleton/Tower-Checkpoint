@@ -4,7 +4,9 @@
 </div>
  <div class="container pt-5">
   <h5>See who is attending this event.</h5>
-  <div class="p-2 bg-grey"><img class="pic elevation-5 rounded-circle" src="https://thiscatdoesnotexist.com/" alt=""> </div>
+  <div class="p-2 bg-grey">
+    <img class="pic elevation-5 rounded-circle" src="https://thiscatdoesnotexist.com/" alt=""> 
+  </div>
 </div>
 <br>
 <section>  
@@ -18,10 +20,7 @@
         </div>
 </div>
 </section>
-
-
 </template>
-
 
 <script>
 import { computed } from "@vue/reactivity"

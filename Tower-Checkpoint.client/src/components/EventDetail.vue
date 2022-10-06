@@ -14,7 +14,7 @@
       
     </div>
     <p>{{event.description}}</p>
-    <div class="d-flex flex-end justify-content-between">  <div>100 spots left</div> <div><button class="btn btn-warning">Attend</button></div></div>
+    <div class="d-flex flex-end justify-content-between"><div>Capacity: {{event.capacity}}</div> <div><button class="btn btn-warning">Attend</button></div></div>
       </div>
 </section>
 </template>

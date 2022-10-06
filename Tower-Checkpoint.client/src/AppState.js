@@ -13,5 +13,7 @@ export const AppState = reactive({
 
   comments: [],
   attendees: [],
+  
+  /** @type {import('./models/Event.js').Event[]} */
   myEvents:[],
 })
