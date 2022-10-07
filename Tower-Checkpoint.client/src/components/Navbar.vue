@@ -1,12 +1,12 @@
 <template>
 <section class="container">
     <div class="col-12 bg-grey">
-      <div class="d-flex justify-content-around my-3 text-light">
-        <button @click="filterEvent('')" class="btn selectable text-light">All</button>
-        <button @click="filterEvent('concert')" class="btn selectable text-light">Concerts</button>
-        <button  class="btn selectable text-light">Conventions</button>
-        <button  class="btn selectable text-light">Sports</button>
-        <button class="btn selectable text-light">Digitals</button>
+      <div class="d-flex justify-content-around my-3">
+        <button @click="filterEvent('')" class="btn selectable text-light darken-90">All</button>
+        <button @click="filterEvent('concert')" class="btn selectable text-light darken-90">Concerts</button>
+        <button @click="filterEvent('convention')" class="btn selectable text-light">Conventions</button>
+        <button @click="filterEvent('sport')" class="btn selectable text-light darken-90">Esports</button>
+        <button @click="filterEvent('digital')" class="btn selectable text-light darken-90">Digitals</button>
       </div>
     </div>
   </section>
@@ -46,4 +46,5 @@ a:hover {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
+
 </style>

@@ -43,7 +43,7 @@ export default {
       getMyEvents();
       })
         return {
-            account: computed(() => AppState.account),
+          account: computed(() => AppState.account),
           myEvents: computed(() => AppState.myEvents),
             // events: computed(() => AppState.events)
         };

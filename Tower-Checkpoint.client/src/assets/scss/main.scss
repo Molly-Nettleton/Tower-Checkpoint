@@ -40,3 +40,10 @@ form:invalid button[type="submit"] {
   filter: grayscale(1);
   pointer-events: none;
 }
+
+.text-shadow{
+  color: rgb(243, 243, 243);
+  text-shadow: 1px 1px rgb(59, 59, 59), 0px 0px 5px rgba(244, 240, 240, 0.512);
+  letter-spacing: 0.05rem
+  /* Second Color  in text-shadow is the blur */
+}

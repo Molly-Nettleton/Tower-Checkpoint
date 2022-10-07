@@ -9,12 +9,16 @@ class CommentsService {
     AppState.comments = res.data
 }
   async createComment(formData) {
+    console.log(formData);
     const res = await SandboxApi.post('api/comments', formData)
-    AppState.comments.push(new Comment(res.data))
+  const comment = res.data
+    // NOTE adds comment without refresh v
+    AppState.comments = [comment, ...AppState.comments]
   }
   async removeComment(id) {
     const res = await SandboxApi.delete(`api/comments/${id}`)
-    AppState.comments = AppState.comments.filter(c => c.id != id)
+    let leftovers= AppState.comments.filter(c => c.id != id)
+    AppState.comments = leftovers
   }
 }
 export const commentsService = new CommentsService()

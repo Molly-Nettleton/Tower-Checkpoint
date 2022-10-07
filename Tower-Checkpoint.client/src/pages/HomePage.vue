@@ -1,4 +1,5 @@
 <template>
+    <main class="me-3">
 <Wordbox/>
     <section class="">
     <navbar />
@@ -7,7 +8,7 @@
   <div class="row g-4 mt-3 overflow-auto eventcard">
 <div class="col-4" v-for="e in events" :key="e.id">
 <EventCard :event="e"/></div>
-</div>
+</div></main>
 </template>
 
 <script>

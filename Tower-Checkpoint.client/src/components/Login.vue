@@ -16,7 +16,7 @@
         id="authDropdown"
       >
         <div v-if="account.picture || user.picture">
-          <button class="btn btn-success mt-3">Logout</button> 
+          <button class="btn btn-success mt-2 p-1">Logout</button> 
           <!-- <span class="mx-3 text-success lighten-30">{{ account.name || user.name }}</span> -->
         </div>
       </div>
@@ -70,4 +70,8 @@ export default {
 .hoverable {
   cursor: pointer;
 }
+
+ .btn{
+  font-size: small;
+  }
 </style>

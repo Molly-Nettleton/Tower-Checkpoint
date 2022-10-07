@@ -2,7 +2,7 @@
 
 <section class="container-fluid bg-dark pt-3">
   <div class="row">
-  <div class="col-12 container wordbox">
+  <div class="col-12 container wordbox text-shadow">
     <p>Get ahead of the scalpers.</p>
     <p>Reserve your seat now with</p>
     <p>real events for real people.</p>

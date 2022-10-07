@@ -1,4 +1,3 @@
-import { Account } from "./Account.js"
 
 export class Event{
 
@@ -8,10 +7,15 @@ export class Event{
     this.description = data.description
     this.coverImg = data.coverImg
     this.location = data.location
-    this.startDate = data.startDate
+    this.startDate = new Date(data.startDate).toLocaleDateString("en-US", {
+      year: 'numeric',
+      month: '2-digit',
+      day: 'numeric'
+    })
     this.isCanceled = data.isCanceled
     this.type = data.type
     this.capacity = data.capacity
-    this.creator = new Account(data.creator)
+    this.creatorId = data.creatorId
+    this.creator=data.creator
   }
 }

@@ -7,6 +7,6 @@ export class Comment{
     this.event = new Event(data.event)
     this.eventId = data.eventId
     this.body = data.body
-    this.isAttending = data.isAttending
+    this.isAttending = data.isAttending || false
   }
 }

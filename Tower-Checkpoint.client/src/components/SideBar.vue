@@ -2,13 +2,13 @@
   <main>
 <div class="d-flex flex-wrap justify-content-center">
       <router-link :to="{name: 'Home'}">
-        <button class="btn btn-primary mt-3">Home</button>
+        <button class="btn btn-primary p-1 mt-3">Home</button>
     </router-link>
     <router-link :to="{name: 'Account'}">
-      <button class="btn btn-success mt-3">Account</button>
+      <button class="btn btn-success p-1 mt-3">Account</button>
     </router-link>
 
-        <button class="btn btn-success mt-3" data-bs-target="#eventsCanvas" data-bs-toggle="offcanvas">
+        <button class="btn btn-success mt-3 p-1" data-bs-target="#eventsCanvas" data-bs-toggle="offcanvas">
             Add Event
         </button>
     <Login/>
@@ -30,8 +30,9 @@ export default {
 
 
 <style lang="scss" scoped>
-  // .btn{
-  // // font-size: small;
-  // }
+  .btn{
+  font-size: small;
+  }
+
 
 </style>

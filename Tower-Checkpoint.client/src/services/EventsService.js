@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js"
 import { Event } from "../models/Event.js"
+import { Ticket } from "../models/Ticket.js"
 import { router } from "../router.js"
 import { SandboxApi } from "./AxiosService.js"
 
@@ -32,26 +33,31 @@ class EventsService {
   async cancelEvent(id) {
     await SandboxApi.delete(`/api/events/${id}`)
     AppState.events = AppState.events.filter(e => e.id != id)
-    AppState.activeEvent = null
-
+    AppState.activeEvent.isCanceled = true
     router.push({name: 'Home'})
+    // router.push({name: 'Home'})
   }
   async getCommentsForEvent(eventId) {
     const res = await SandboxApi.get(`/api/event/${eventId}/comments`)
     AppState.comments = res.data
   }
+  async getTicket(eventData) {
+    const res = await SandboxApi.post('api/tickets', eventData)
+    const ticket = res.data
+    AppState.tickets.push(ticket)
+    AppState.events = res.data
+    AppState.activeEvent.capacity--
+  }
   async getAttendees(eventId) {
     const res = await SandboxApi.get(`api/events/${eventId}/tickets`)
-    AppState.attendees = res.data
+    console.log(res.data)
+    
+    AppState.tickets = res.data.map(e => new Ticket(e))
   }
-  async addAttendee(eventData) {
-    const res = await SandboxApi.post(`/api/tickets`, eventData)
-    const attendee = res.data
-    AppState.attendees.push(attendee)
-  }
-  async removeAttendee(attendeeId) {
-    await SandboxApi.delete('api/tickets/' + attendeeId)
-    AppState.attendees = AppState.attendees.filter(a => a.id != attendeeId)
+  async removeAttendee(id) {
+    await SandboxApi.delete(`api/tickets/${id}`)
+    AppState.tickets = AppState.tickets.filter(a => a.id != id)
+    AppState.activeEvent.capacity++
   }
 }
 export const eventsService = new EventsService()
