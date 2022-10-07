@@ -16,7 +16,7 @@
   </div>
   <div class="row">
     <div class="d-flex justify-content-end">
-<button class="btn btn-success" type="submit">Comment</button></div>
+<button class="btn btn-success" type="submit" aria-label="Submit Comment" title="Submit" >Comment</button></div>
   </div>
 
 

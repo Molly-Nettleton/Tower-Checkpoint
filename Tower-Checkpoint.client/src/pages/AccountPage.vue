@@ -1,24 +1,23 @@
 <template>
+  <section>
 <div class="pt-5 text-success">
   <h5>My Events</h5> </div>
-  <div class="col-11 pt-1 d-flex flex-wrap">
 
-    <div class="row events">
+  <div class="col-11 pt-1 d-flex flex-wrap">
+    <div class="row eventrow">
     <div v-for="e in myEvents" :key="e.id" class="p-3 col-4">
-    <EventCard :event="e"/></div></div>
+    <EventCard :event="e"/></div>
+    </div>
     </div>
 
-<div class="pt-5 text-success">
+<div class="pt-5 text-success ">
   <h5>Upcoming Events</h5> </div>
-<div class="row">
- <!-- <MyTicketsCard /> -->
+<div class="row overflow-auto">
+   <div v-for="t in myTickets" :key="t.id" class="p-3 ">
+    <MyTicketsCard :ticket="t" /></div>
+ 
 </div>
-
-  <!-- <div class="about text-center">
-    <h1>Welcome {{ account.name }}</h1>
-    <img class="rounded" :src="account.picture" alt="" />
-    <p>{{ account.email }}</p>
-  </div> -->
+  </section>
 </template>
 
 <script>
@@ -39,13 +38,23 @@ export default {
             Pop.error(error)
           }
     }
+    async function getMyTickets() {
+      try {
+        await accountService.getTicketsForAccount();
+        } catch (error) {
+          console.error('[GetMyTickets]',error)
+          Pop.error(error)
+        }
+    }
     onMounted(() => {
       getMyEvents();
+      getMyTickets();
       })
         return {
           account: computed(() => AppState.account),
-          myEvents: computed(() => AppState.myEvents),
-            // events: computed(() => AppState.events)
+          myEvents: computed(() => AppState.myEvents.filter(e => e.creator.id == AppState.account.id)),
+          myTickets: computed(() => AppState.myTickets),
+          event: computed(() => AppState.events)
         };
     },
     components: { EventCard, MyTicketsCard }
@@ -53,33 +62,14 @@ export default {
 </script>
 
 <style scoped>
-.events{
+
+.wow{
+  height: 300px
+}
+.eventrow{
   overflow-x: auto;
   white-space: nowrap;
   flex-wrap: nowrap;
 }
-*::-webkit-scrollbar {
-  width: 13px;
-  width: 13px;
-}
-*::-webkit-scrollbar-track {
-  border-radius: 7px;
-  background-color: #474C61;
- cursor: pointer;
-}
 
-/* *::-webkit-scrollbar-track:hover {
-  background-color: #8ddcf0;
-  cursor: pointer;
-}
-
-*::-webkit-scrollbar-track:active {
-  background-color: #d1eaf0;
-} */
-
-*::-webkit-scrollbar-thumb {
-  width: 100px;
-  border-radius: 10px;
-  background-color: #79E7AB;
-}
 </style>

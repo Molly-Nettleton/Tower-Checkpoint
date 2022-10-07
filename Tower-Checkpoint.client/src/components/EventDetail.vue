@@ -1,10 +1,10 @@
 <template>
- <section class="container elevation-5 me-5 d-flex bg-grey pe-3">
-  <div class="col-4 p-2 m-1 me-4">
-      <img class="eventimg img-fluid elevation-5" :src="event.coverImg" :alt="event.name" :title="event.name">
+ <section class="container elevation-5 d-flex bg-grey ">
+  <div class="col-4 p-2 m-1">
+      <img class="elevation-5 img" :src="event.coverImg" :alt="event.name" :title="event.name">
   </div>
     
-    <div class="col-7 pt-4 ms-3">
+    <div class="col-7 pt-4">
       <div class="d-flex justify-content-between">
     <div><h4>{{event.name}}</h4><h5>{{event.location}}</h5></div>
     <div><h5>{{event.startDate}}</h5>
@@ -14,10 +14,11 @@
       
     </div>
     <p>{{event.description}}</p>
+    <div class="text-center">
     <div class="d-flex flex-end justify-content-between"><div v-if="event.capacity>0">{{event.capacity}} tickets remaining.</div><div v-else>Sold Out!</div>
-    <div><button class="btn btn-warning" @click="addTicket()" :disable="event.capacity==0" v-if="!isAttending">Get Ticket</button><button class="btn btn-warning" @click="removeTicket()" v-else>Remove Ticket</button>
-      <p><button class="btn btn-danger m-2" v-if="account.id == event.creatorId" @click="cancelEvent()">Cancel Event</button></p>
-      
+    <div><button aria-label="Get Ticket" title="Get Ticket" class="btn btn-warning" @click="addTicket()" :disable="event.capacity==0" v-if="!isAttending">Get Ticket</button><button aria-label="Remove Ticket" title="Remove Ticket"  class="btn btn-warning" @click="removeTicket()" v-else>Remove Ticket</button>
+      <p><button class="btn btn-danger m-2" aria-label="Cancel Event" title="Cancel Event"   v-if="account.id == event.creatorId" @click="cancelEvent()">Cancel Event</button></p>
+      </div>
       
     </div></div>
       </div>
@@ -84,7 +85,11 @@ export default {
 }
 </script>
 
-
 <style lang="scss" scoped>
-
+img{
+ height: 300px;
+ width: 270px;
+ object-fit: cover;
+ object-position: center;
+}
 </style>

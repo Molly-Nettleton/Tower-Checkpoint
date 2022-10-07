@@ -1,5 +1,4 @@
 import { AppState } from '../AppState'
-import { Event } from "../models/Event.js"
 import { logger } from '../utils/Logger'
 import { SandboxApi } from './AxiosService'
 
@@ -15,15 +14,14 @@ class AccountService {
   
   async getEventsForAccount() {
     const res = await SandboxApi.get('api/events')
-    
-    console.log(AppState.myEvents)
     AppState.myEvents = AppState.myEvents.filter(e => e.creator.id == AppState.account.id)
-    console.log(AppState.myEvents)
     AppState.myEvents = res.data
   }
 
   async getTicketsForAccount() {
-    
+    const res = await SandboxApi.get('account/tickets')
+    console.log(res.data)
+    AppState.myTickets = res.data
   }
 }
 

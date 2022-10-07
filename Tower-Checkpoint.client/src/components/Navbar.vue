@@ -2,11 +2,11 @@
 <section class="container">
     <div class="col-12 bg-grey">
       <div class="d-flex justify-content-around my-3">
-        <button @click="filterEvent('')" class="btn selectable text-light darken-90">All</button>
-        <button @click="filterEvent('concert')" class="btn selectable text-light darken-90">Concerts</button>
-        <button @click="filterEvent('convention')" class="btn selectable text-light">Conventions</button>
-        <button @click="filterEvent('sport')" class="btn selectable text-light darken-90">Esports</button>
-        <button @click="filterEvent('digital')" class="btn selectable text-light darken-90">Digitals</button>
+        <button @click="filterEvent('')" aria-label="All Events" title="All Events" class="btn selectable text-light darken-90">All</button>
+        <button @click="filterEvent('concert')" aria-label="Concerts" title="Concerts" class="btn selectable text-light darken-90">Concerts</button>
+        <button @click="filterEvent('convention')" aria-label="Conventions" title="Conventions" class="btn selectable text-light">Conventions</button>
+        <button @click="filterEvent('sport')" aria-label="Esports" title="Esports" class="btn selectable text-light darken-90">Esports</button>
+        <button @click="filterEvent('digital')" aria-label="Digital" title="Digital" class="btn selectable text-light darken-90">Digitals</button>
       </div>
     </div>
   </section>
@@ -47,4 +47,7 @@ a:hover {
   border-bottom-right-radius: 0;
 }
 
+button:focus{
+background-color: #a356fb;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
   <span class="navbar-text">
-    <button
+    <button aria-label="Login" title="Login"
       class="btn selectable text-success lighten-30 text-uppercase my-2 my-lg-0"
       @click="login"
       v-if="!user.isAuthenticated"
@@ -27,7 +27,7 @@
           </div>
         </router-link>
         <div class="list-group-item list-group-item-action hoverable text-danger" @click="logout">
-          <i class="mdi mdi-logout"></i>
+          <i aria-label="Logout" title="Logout" class="mdi mdi-logout"></i>
           logout
         </div>
       </div>

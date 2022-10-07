@@ -1,12 +1,15 @@
 <template>
-<div class="me-3" v-if="event">
+  <div class="container">
+  <div class="me-3" v-if="event">
 <EventDetail :event="event"/>
 </div>
+  </div>
+
 
  <div class="container pt-5">
   <h5>See who is attending this event.</h5>
-  <div class="p-2 bg-grey me-3">
-    <img v-for="t in tickets" class="pic elevation-5 rounded-circle" :src="t.profile?.picture" :title="t.profile?.name" alt=""> 
+  <div class="p-2 bg-grey me-3 attendees">
+    <img v-for="t in tickets" class="pic elevation-5 rounded-circle " :src="t.profile?.picture" :title="t.profile?.name" alt=""> 
   </div>
 </div>
 <br>
@@ -119,6 +122,10 @@ export default {
   .pic{
 height: 50px;
 widows: 50px;
+}
+
+.attendees{
+  height:70px;
 }
 
 </style>

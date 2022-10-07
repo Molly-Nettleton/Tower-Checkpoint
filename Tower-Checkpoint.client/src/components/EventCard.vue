@@ -1,8 +1,8 @@
 <template>
    <router-link :to="{name: 'Event', params:{ id: event.id}}">
-  <div class="eventcard rounded" :style="{backgroundImage: `url(${event.coverImg})`}">
+  <div aria-label="Event" title="Event" class="eventcard rounded" :style="{backgroundImage: `url(${event.coverImg})`}">
     <br><br><br><br><br>
-    <div class="cardtitle p-1 text-shadow "><h5>{{event.name}}</h5><div>
+    <div class="cardtitle p-1 text-shadow "><h5 class="title">{{event.name}}</h5><div>
     {{event.location}}</div>
   <div>{{event.startDate}}</div></div>
   </div>

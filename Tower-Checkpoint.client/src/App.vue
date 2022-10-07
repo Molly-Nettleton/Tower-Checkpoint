@@ -17,7 +17,7 @@
 </div>
   </div>
 
-<div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+<div class="offcanvas offcanvas-end bg-grey" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
     id="eventsCanvas" aria-labelledby="eventsCanvasLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="eventsCanvasLabel">Add your Listing</h5>
@@ -56,8 +56,19 @@ export default {
   font-size: 60px
 }
 
-::-webkit-scrollbar{
-    display: none;
+*::-webkit-scrollbar {
+  width: 13px;
+  width: 13px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 7px;
+  background-color: #474C61;
+ cursor: pointer;
+}
+*::-webkit-scrollbar-thumb {
+  width: 100px;
+  border-radius: 10px;
+  background-color: #79E7AB;
 }
 
 .maincnt{

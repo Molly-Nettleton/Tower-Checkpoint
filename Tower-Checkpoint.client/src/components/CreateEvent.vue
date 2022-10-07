@@ -38,7 +38,7 @@
       </div>
 
     <div class="my-3" v-if="editable.event">
-      <button class="btn btn-success" type="submit">Create Event</button>
+      <button class="btn btn-success" type="submit" aria-label="Submit Event Form" title="Submit">Create Event</button>
     </div>
   </form>
 </template>
