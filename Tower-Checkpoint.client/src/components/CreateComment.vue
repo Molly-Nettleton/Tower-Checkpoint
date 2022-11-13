@@ -47,7 +47,7 @@ export default {
           editable.value = {}
           } catch (error) {
             console.error('[CreateComment]',error)
-            Pop.error(error)
+            Pop.error('Enter comment text.')
           }
       }
     }

@@ -4,7 +4,7 @@
     <br><br><br><br><br>
     <div class="cardtitle p-1 text-shadow "><h5 class="title">{{event.name}}</h5><div>
     {{event.location}}</div>
-  <div>{{event.startDate}}</div></div>
+  <div>{{new Date(event.startDate).toLocaleDateString()}}</div></div>
   </div>
   </router-link>
 </template>
@@ -14,7 +14,7 @@
 
 export default {
   props: {
-    event: { type: Event, required: true },
+    event: { type: Object, required: true },
   },
   setup(){
     return {

@@ -65,7 +65,7 @@ export default {
             }
           } catch (error) {
             console.error('[Submitting Form]', error)
-            Pop.error(error)
+            Pop.error("Fill out required forms.")
           }
       }
     }

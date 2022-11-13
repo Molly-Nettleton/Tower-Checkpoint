@@ -5,11 +5,9 @@ class CommentsService {
 
   async getComments(eventId) {
     const res = await SandboxApi.get(`api/events/${eventId}/comments`)
-    console.log(res.data)
     AppState.comments = res.data
 }
   async createComment(formData) {
-    console.log(formData);
     const res = await SandboxApi.post('api/comments', formData)
   const comment = res.data
     // NOTE adds comment without refresh v

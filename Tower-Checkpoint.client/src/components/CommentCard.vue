@@ -27,14 +27,13 @@
 <script>
 import { computed } from "@vue/reactivity";
 import { AppState } from "../AppState.js";
-import { Comment } from "../models/Comment.js";
 import { commentsService } from "../services/CommentsService.js";
 import Pop from "../utils/Pop.js";
 
 export default {
   props: {
     comment: {
-    type:Comment,
+    type:Object,
     required: true
   }
 },

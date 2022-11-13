@@ -9,7 +9,7 @@
  <div class="container pt-5">
   <h5>See who is attending this event.</h5>
   <div class="p-2 bg-grey me-3 attendees">
-    <img v-for="t in tickets" class="pic elevation-5 rounded-circle " :src="t.profile?.picture" :title="t.profile?.name" alt=""> 
+    <img v-for="t in tickets" class="pic elevation-5 rounded-circle me-2" :src="t.profile?.picture" :title="t.profile?.name" alt=""> 
   </div>
 </div>
 <br>

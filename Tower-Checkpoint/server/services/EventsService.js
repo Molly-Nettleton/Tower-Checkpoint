@@ -42,7 +42,7 @@ async cancelEvent(id, userInfo) {
   }
   async getAllEvents(query) {
     const events = await dbContext.Events.find({
-      isCanceled: false,
+      // isCanceled: false,
       ...query,
     }).populate('creator','name picture')
   return events

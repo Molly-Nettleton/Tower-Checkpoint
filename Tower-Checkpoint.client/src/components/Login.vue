@@ -26,7 +26,7 @@
             Manage Account
           </div>
         </router-link>
-        <div class="list-group-item list-group-item-action hoverable text-danger" @click="logout">
+        <div class="list-group-item list-group-item-action hoverable text-danger" @click="logout" aria-label="Logout" title="Logout">
           <i aria-label="Logout" title="Logout" class="mdi mdi-logout"></i>
           logout
         </div>

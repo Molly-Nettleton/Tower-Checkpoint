@@ -13,7 +13,7 @@ export class TicketsController extends BaseController {
   async removeTicket(req, res, next) {
     try {
       req.body.accountId = req.userInfo.id
-      const ticket = await ticketService.removeTicketToEvent(req.params.id,req.userInfo.id)
+      const ticket = await ticketService.removeTicketToEvent(req.params.id, req.userInfo.id)
       res.send(ticket)
     } catch (error) {
       next(error)
@@ -21,11 +21,11 @@ export class TicketsController extends BaseController {
   }
   async createTicket(req, res, next) {
     try {
-    req.body.accountId = req.userInfo.id
+      req.body.accountId = req.userInfo.id
       const ticket = await ticketService.addTicketToEvent(req.body)
       res.send(ticket)
     } catch (error) {
-    next(error)
+      next(error)
     }
   }
 }

@@ -16,7 +16,6 @@ class EventsService {
     } else {
       res = await SandboxApi.get('api/events')
     }
-    console.log(res.data)
     AppState.events = res.data.map(e => new Event(e))
   }
   async getEventById(eventId) {
@@ -50,8 +49,6 @@ class EventsService {
   }
   async getAttendees(eventId) {
     const res = await SandboxApi.get(`api/events/${eventId}/tickets`)
-    console.log(res.data)
-    
     AppState.tickets = res.data.map(e => new Ticket(e))
   }
   async removeAttendee(id) {

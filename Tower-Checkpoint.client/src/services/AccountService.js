@@ -20,7 +20,6 @@ class AccountService {
 
   async getTicketsForAccount() {
     const res = await SandboxApi.get('account/tickets')
-    console.log(res.data)
     AppState.myTickets = res.data
   }
 }
