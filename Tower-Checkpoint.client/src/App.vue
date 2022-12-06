@@ -1,23 +1,23 @@
 <template>
 
-  <div class="container-fluid bg-dark maincnt">
-  <div class="row">
-  <div class="col-11">
-   <TitleBar/>
+  <div class="container-fluid bg-grey maincnt">
+    <div class="row">
+      <div class="col-11">
+        <TitleBar />
 
-  <main class="ms-3 mb-4">
-    <router-view />
-  </main>
-</div>
+        <main class="ms-3 mb-4">
+          <router-view />
+        </main>
+      </div>
 
-<div class="col-1 text-center sidebar">
- <SideBar/>
-</div>
+      <div class="col-1 text-center sidebar">
+        <SideBar />
+      </div>
 
-</div>
+    </div>
   </div>
 
-<div class="offcanvas offcanvas-end bg-grey" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+  <div class="offcanvas offcanvas-end bg-grey" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
     id="eventsCanvas" aria-labelledby="eventsCanvasLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="eventsCanvasLabel">Add your Listing</h5>
@@ -52,7 +52,7 @@ export default {
 <style lang="scss">
 @import "./assets/scss/main.scss";
 
-.titlebar{
+.titlebar {
   font-size: 60px
 }
 
@@ -60,22 +60,26 @@ export default {
   width: 13px;
   width: 13px;
 }
+
+
 *::-webkit-scrollbar-track {
   border-radius: 7px;
   background-color: #474C61;
- cursor: pointer;
+  cursor: pointer;
 }
+
 *::-webkit-scrollbar-thumb {
   width: 100px;
   border-radius: 10px;
   background-color: #79E7AB;
 }
 
-.maincnt{
+.maincnt {
   margin-right: 10px;
 }
-.sidebar{
-  background: linear-gradient(180deg, #474C61 0%, rgba(71, 76, 97, 0) 100%);
-}
 
+.sidebar {
+background: rgb(64, 92, 245);
+  background: linear-gradient(0deg, rgba(64, 92, 245, 1) 26%, rgba(42, 45, 58, 1) 82%);
+}
 </style>

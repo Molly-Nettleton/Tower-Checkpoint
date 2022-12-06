@@ -1,7 +1,7 @@
 <template>
   <span class="navbar-text">
     <button aria-label="Login" title="Login"
-      class="btn selectable text-success lighten-30 text-uppercase my-2 my-lg-0"
+      class="btn selectable text-success lighten-30 text-uppercase my-2 my-lg-0 fw-bold"
       @click="login"
       v-if="!user.isAuthenticated"
     >
@@ -16,7 +16,7 @@
         id="authDropdown"
       >
         <div v-if="account.picture || user.picture">
-          <button class="btn btn-success mt-2 p-1">Logout</button> 
+          <button class="btn button-9 fw-bold btn-success hover elevation-5">Logout</button> 
           <!-- <span class="mx-3 text-success lighten-30">{{ account.name || user.name }}</span> -->
         </div>
       </div>

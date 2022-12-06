@@ -1,13 +1,13 @@
 <template>
 <section class="container">
-    <div class="col-12 bg-grey">
+    <div class="col-12 bg-dark elevation-5 rounded-3">
       <div class="d-flex justify-content-around my-3">
 
         <button @click="filterEvent('')" aria-label="All Events" title="All Events" class="btn selectable text-light darken-90">All</button>
         
         <button @click="filterEvent('concert')" aria-label="Concerts" title="Concerts" class="btn selectable text-light darken-90">Concerts</button>
         <button @click="filterEvent('convention')" aria-label="Conventions" title="Conventions" class="btn selectable text-light">Conventions</button>
-        <button @click="filterEvent('sport')" aria-label="Esports" title="Esports" class="btn selectable text-light darken-90">Esports</button>
+        <button @click="filterEvent('sport')" aria-label="Esports" title="Esports" class="btn selectable text-light darken-90">Sports</button>
         <button @click="filterEvent('digital')" aria-label="Digital" title="Digital" class="btn selectable text-light darken-90">Digitals</button>
       </div>
     </div>
@@ -50,6 +50,6 @@ a:hover {
 }
 
 button:focus{
-background-color: #7725d5;
+background-color: #405cf5;
 }
 </style>
