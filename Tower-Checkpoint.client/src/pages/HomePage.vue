@@ -5,7 +5,7 @@
     <navbar />
    </section>
 
-  <div class="row g-4 mt-3 overflow-auto eventcard">
+  <div class="row g-4 mt-3 overflow-auto eventcard bg-dark pb-3 rounded-4">
 <div class="col-4" v-for="e in events" :key="e.id">
 <EventCard :event="e"/></div>
 </div>

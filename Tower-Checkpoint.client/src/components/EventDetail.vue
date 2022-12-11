@@ -1,10 +1,10 @@
 <template>
-  <section class="container elevation-5 d-flex bg-grey ">
-    <div class="col-4 p-2 m-1">
+  <section class="container elevation-5 d-flex bg-dark ">
+    <div class="col-3 p-2 m-1">
       <img class="elevation-5 img" :src="event.coverImg" :alt="event.name" :title="event.name">
     </div>
 
-    <div class="col-7 pt-4">
+    <div class="col-8 pt-4">
       <div class="d-flex justify-content-between">
         <div>
           <h4>{{ event.name }}</h4>
@@ -30,7 +30,8 @@
             <button aria-label="Remove Ticket" title="Remove Ticket" class="btn btn-warning" @click="removeTicket()"
               v-else>Remove Ticket</button>
 
-            <p><button class="btn btn-danger m-2" aria-label="Cancel Event" title="Cancel Event" v-if="account.id == event.creatorId" @click="cancelEvent()">Cancel Event</button></p>
+            <p><button class="btn btn-danger m-2" aria-label="Cancel Event" title="Cancel Event"
+                v-if="account.id == event.creatorId" @click="cancelEvent()">Cancel Event</button></p>
           </div>
 
         </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container pt-3">
   <div class="me-3" v-if="event">
 <EventDetail :event="event"/>
 </div>
@@ -8,15 +8,15 @@
 
  <div class="container pt-5">
   <h5>See who is attending this event.</h5>
-  <div class="p-2 bg-grey me-3 attendees">
+  <div class="p-2 bg-dark me-3 attendees">
     <img v-for="t in tickets" class="pic elevation-5 rounded-circle me-2" :src="t.profile?.picture" :title="t.profile?.name" alt=""> 
   </div>
 </div>
 <br>
 <section class="d-flex justify-content-center">  
   <div class="col-8">
-  <div class="ms-2 mb-2 text-text">What people are saying</div>
-  <div class="container bg-grey p-4">
+  <div class="ms-2 mb-2 text-text">What people are saying..</div>
+  <div class="container bg-dark p-4">
   <div class="text-success text-end pb-1">Join the convseration</div>
   <CreateComment/> <br>
 

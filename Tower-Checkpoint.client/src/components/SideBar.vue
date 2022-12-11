@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="sidebar">
     <div class="d-flex flex-wrap justify-content-center">
       <router-link :to="{ name: 'Home' }">
         <button class="btn button-9 fw-bold btn-success hover elevation-5" aria-label="Home" title="Home">Home</button>
@@ -36,5 +36,9 @@ export default {
 <style lang="scss" scoped>
 .btn {
   font-size: small;
+}
+
+.sidebar {
+  height: 100vh;
 }
 </style>
